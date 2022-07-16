@@ -1,18 +1,24 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameplayHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    GridGenerator gridGenerator;
+    Tile[,] currentGrid;
 
-    // Update is called once per frame
-    void Update()
+    [Button("Generate Default Grid")]
+    public void TestGenerateGrid() 
     {
-        
+        if(currentGrid != null)
+            foreach (Tile t in currentGrid.Cast<Tile>().ToList())
+                Destroy(t.gameObject);
+
+        currentGrid = gridGenerator.GenerateGrid(transform); 
     }
 }
+
+

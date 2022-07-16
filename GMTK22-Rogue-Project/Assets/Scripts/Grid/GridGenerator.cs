@@ -1,70 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using NaughtyAttributes;
 
-public class GridGenerator : MonoBehaviour
+[System.Serializable]
+public class GridParams
 {
-    [SerializeField, ShowIf("ShowTileList")]
-    List<Tile> allTiles;
-    bool ShowTileList => standaloneMode && allTiles?.Count > 0;
+    public int rowCount;
+    public int columnsCount;
+    [Tooltip("Point on which is centered the bottom left tile of the grid")]
+    public Transform origin;
+    public float tileSize;
+    public float tileSpacing;
 
-    [Header("Grid Caracs")]
-    [SerializeField, Tooltip("Check this to made the script run on his own")]
-    bool standaloneMode;
+    public GridParams(int _rowCount, int _columnsCount, Transform _origin = null, float _tileSize = 1f, float _tileSpacing = 0.2f)
+    {
+        rowCount = _rowCount;
+        columnsCount = _columnsCount;
+        origin = _origin;
+        tileSize = _tileSize;
+        tileSpacing = _tileSpacing;
+    }
+}
 
+[System.Serializable]
+public class GridGenerator
+{
     [SerializeField]
-    int rowCount;
-    [SerializeField]
-    int columnsCount;
-    [SerializeField]
-    float tileSize;
-    [SerializeField]
-    float tileSpacing;
-    [SerializeField, Tooltip("Point on chich is centered the bottom left tile of the grid")]
-    Transform origin;
+    GridParams defaultParams;
 
     [Header("Grid Ressources")]
     [SerializeField]
     Tile tileTemplate;
 
-    private void Start()
+    public Tile[,] GenerateGrid(Transform parent, GridParams _gridParams = null)
     {
-        if (standaloneMode)
-        {
-            allTiles = GenerateGrid();
-        }
-    }
+        if (_gridParams == null)
+            _gridParams = defaultParams;
 
-    public List<Tile> GenerateGrid(Transform parent = null)
-    {
         var sizeT = tileTemplate.GetTileSize();
         float tileXSize = sizeT.Item1;
         float tileYSize = sizeT.Item2;
-        List<Tile> gridTileList = new List<Tile>();
+        Tile[,] gridTileList = new Tile[_gridParams.columnsCount,_gridParams.rowCount];
 
-        Vector3 posToSpawn = origin ? origin.position : Vector3.zero;
+        Vector3 posToSpawn = _gridParams.origin ? _gridParams.origin.position : Vector3.zero;
         Tile _t;
 
-        if (parent == null) parent = transform;
-
-        for (int x = 0; x < columnsCount; x++)
+        for (int x = 0; x < _gridParams.columnsCount; x++)
         {
-            posToSpawn.x += (tileXSize + tileSpacing);
-            posToSpawn.y = 0;
-
-            for (int y = 0; y < rowCount; y++)
+            for (int y = 0; y < _gridParams.rowCount; y++)
             {
-                posToSpawn.y += (tileYSize + tileSpacing);
+                _t = Object.Instantiate(tileTemplate, posToSpawn, Quaternion.identity, parent);
+                _t.SetCoords(x, y);
+                gridTileList[x,y] = _t;
 
-                _t = Instantiate(tileTemplate, posToSpawn, Quaternion.identity, parent);
-                _t.SetCoords(x + 1, y + 1);
-                gridTileList.Add(_t);
+                posToSpawn.y += (tileYSize + _gridParams.tileSpacing);
             }
+
+            posToSpawn.x += (tileXSize + _gridParams.tileSpacing);
+            posToSpawn.y = 0;
         }
         return gridTileList;
     }
-
-
-
 }

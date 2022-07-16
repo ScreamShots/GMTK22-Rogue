@@ -5,20 +5,15 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    [ReadOnly]
+    public int[] coords;
     [SerializeField]
-    SpriteRenderer baseTileSprite;
+    protected SpriteRenderer tileRenderer;
     [SerializeField]
-    SpriteRenderer outlineTileSprite;
-    [SerializeField]
-    SpriteRenderer selectionTileSprite;
-    [SerializeField]
-    Collider2D colliderBox;
-
-    [SerializeField, ReadOnly]
-    int[] coords = new int[2];
+    protected SpriteRenderer outlineRenderer;
 
 
-    public (float, float) GetTileSize() => (baseTileSprite.bounds.size.x, baseTileSprite.bounds.size.y);
+    public (float, float) GetTileSize() => (tileRenderer.bounds.size.x, tileRenderer.bounds.size.y);
     public void SetCoords(int x, int y) 
     {
         coords = new int[2];
