@@ -19,5 +19,7 @@ MonoBehaviour:
     color: {r: 0.3254717, g: 0.3424728, b: 1, a: 1}
   - type: 2
     color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  - type: 3
+    color: {r: 0.9339623, g: 0.33922213, b: 0.33922213, a: 1}
   spawnOutlineColor: {r: 1, g: 0, b: 0.9532509, a: 1}
   defaultOutlineColor: {r: 1, g: 0.85492563, b: 0.28773582, a: 1}

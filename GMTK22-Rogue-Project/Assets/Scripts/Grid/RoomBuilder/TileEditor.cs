@@ -8,6 +8,8 @@ using System.Linq;
 public class TileEditor : Tile
 {
     RoomEditor editor;
+    [SerializeField]
+    protected SpriteRenderer outlineRenderer;
 
     [OnValueChanged("UpdateData")]
     public TileType type = TileType.Ground;

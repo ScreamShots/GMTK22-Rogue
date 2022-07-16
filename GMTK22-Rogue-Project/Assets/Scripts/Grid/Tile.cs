@@ -3,15 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+public abstract class Tile : MonoBehaviour
 {
     [ReadOnly]
     public int[] coords;
     [SerializeField]
     protected SpriteRenderer tileRenderer;
-    [SerializeField]
-    protected SpriteRenderer outlineRenderer;
-
 
     public (float, float) GetTileSize() => (tileRenderer.bounds.size.x, tileRenderer.bounds.size.y);
     public void SetCoords(int x, int y) 

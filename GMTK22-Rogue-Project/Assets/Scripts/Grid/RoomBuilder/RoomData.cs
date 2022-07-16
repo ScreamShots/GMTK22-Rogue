@@ -16,7 +16,7 @@ public class RoomData : ScriptableObject
     public TileData[,] tiles;
 }
 
-public enum TileType { Wall, Door, Ground }
+public enum TileType { Wall, Door, Ground, Trap }
 
 [System.Serializable]
 public class TileData
@@ -32,6 +32,26 @@ public class TileData
         type = _type;
         canPlaceDice = _canPlace;
         isPlayerSpawn = _spawn;
+    }
+}
+
+[System.Serializable]
+public class GridParams
+{
+    public int rowCount;
+    public int columnsCount;
+    [Tooltip("Point on which is centered the bottom left tile of the grid")]
+    public Transform origin;
+    public float tileSize;
+    public float tileSpacing;
+
+    public GridParams(int _rowCount, int _columnsCount, Transform _origin = null, float _tileSize = 1f, float _tileSpacing = 0.2f)
+    {
+        rowCount = _rowCount;
+        columnsCount = _columnsCount;
+        origin = _origin;
+        tileSize = _tileSize;
+        tileSpacing = _tileSpacing;
     }
 }
 
