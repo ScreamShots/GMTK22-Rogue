@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ea0bd31a199eb47a057220e34189cc, type: 3}
   m_Name: EasyRoomWalls_03
   m_EditorClassIdentifier: 
-  roomName: EasyRoom_03
-  columnsCount: 4
-  rowsCount: 3
+  roomName: EasyRoomWalls_03
+  columnsCount: 6
+  rowsCount: 5
