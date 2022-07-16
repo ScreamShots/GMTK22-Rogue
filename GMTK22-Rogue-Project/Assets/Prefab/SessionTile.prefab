@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 323258f8973790349a4a7da59d7f3435, type: 3}
-  m_Color: {r: 1, g: 0.75085026, b: 0.48584908, a: 1}
+  m_Color: {r: 1, g: 0.85490197, b: 0.28627452, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,7 +132,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coords: 
   tileRenderer: {fileID: 6280734682233402945}
+  linkedData:
+    Xcoord: 0
+    Ycoord: 0
+    type: 0
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+  currentStandingEntity: {fileID: 0}
   visuals: {fileID: 4914522082902671081}
+  possibleActionOnCell: 0
 --- !u!65 &4140642012936665668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -281,6 +289,7 @@ MonoBehaviour:
   tileRenderer: {fileID: 6280734682233402945}
   outlineRenderer: {fileID: 1357257651506528020}
   selectorRenderer: {fileID: 1272460083316407511}
+  colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
 --- !u!1 &7157449251607298086
 GameObject:
   m_ObjectHideFlags: 0

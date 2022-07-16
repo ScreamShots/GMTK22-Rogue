@@ -54,3 +54,4 @@ MonoBehaviour:
     tileSize: 1
     tileSpacing: 0.15
   tileEditorTemplate: {fileID: 4437694560391055081, guid: a3213e258f238d240899d916ef65698d, type: 3}
+  allTiles: []

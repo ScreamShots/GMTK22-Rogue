@@ -10,6 +10,8 @@ public class SessionManager : MonoBehaviour
     TerrainHandler terrainHandler;
     [SerializeField]
     InterractionHandler interractionHandler;
+    [SerializeField]
+    EntityHandler entityHandler;
 
     [Space]
 
@@ -19,6 +21,8 @@ public class SessionManager : MonoBehaviour
     private void Start()
     {
         terrainHandler.ConstructNewRoom(tempDbugRoomData);
+        entityHandler.SpawnPlayer(terrainHandler.spawnTile, terrainHandler.ScaleFactor);
+        entityHandler.StartPlayerTurn();
     }
 }
 

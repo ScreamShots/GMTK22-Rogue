@@ -8,7 +8,8 @@ public class TerrainHandler : MonoBehaviour
 {
     [SerializeField, ReadOnly]
     RoomData currentRoomData;
-    TileSession[,] currentGrid;
+    public static TileSession[,] currentGrid;
+    public TileSession spawnTile => currentGrid.Cast<TileSession>().ToList().Where(t => t.IsSpawn).First();
 
     [Space]
     [SerializeField]
@@ -21,7 +22,7 @@ public class TerrainHandler : MonoBehaviour
     float tileSpacing;
     [SerializeField]
     float tileSize;
-
+    public float ScaleFactor => tileSize;
 
     public void ConstructNewRoom(RoomData data)
     {
@@ -59,7 +60,7 @@ public class TerrainHandler : MonoBehaviour
                 {
                     _t = Instantiate(tileSessionTemplate, posToSpawn, Quaternion.identity, gridParent);
                     _t.SetCoords(x, y);
-                    _t.InitTile();
+                    _t.InitTile(data.GetDataFromCoords(x,y));
                     currentGrid[x, y] = _t;
 
                     posToSpawn.y += (tileYSize + tileSpacing);

@@ -11,7 +11,7 @@ public class RoomEditor : MonoBehaviour
     public bool autoSave;
 
     [HorizontalLine]
-    [SerializeField,Expandable]
+    [SerializeField, Expandable]
     DebugTileColors textures;
     [SerializeField]
     GridParams generationParameters;
@@ -25,7 +25,7 @@ public class RoomEditor : MonoBehaviour
     [Button("Create a Blank Grid")]
     public void GenerateNewGrid()
     {
-        if(currentData == null)
+        if (currentData == null)
         {
             Debug.LogWarning("Assign a data container before creating a new Grid");
             return;
@@ -42,7 +42,9 @@ public class RoomEditor : MonoBehaviour
         currentData.columnsCount = generationParameters.columnsCount;
         currentData.rowsCount = generationParameters.rowCount;
         currentData.roomName = "newRoom";
-        currentData.tiles = new TileData[generationParameters.columnsCount, generationParameters.rowCount];
+
+        //currentData.tiles = new TileData[generationParameters.columnsCount, generationParameters.rowCount];
+        currentData.tilesDataSerialization = new List<TileData>();
 
         for (int x = 0; x < generationParameters.columnsCount; x++)
         {
@@ -52,7 +54,9 @@ public class RoomEditor : MonoBehaviour
                 _t.SetCoords(x, y);
                 _t.SetupdData(this);
                 allTiles.Add(_t);
-                currentData.tiles[x, y] = new TileData();
+
+                currentData.tilesDataSerialization.Add(new TileData((x, y)));
+                //currentData.tiles[x, y] = new TileData();
                 UpdateTileData(_t);
 
                 posToSpawn.y += (tileYSize + generationParameters.tileSpacing);
@@ -96,7 +100,8 @@ public class RoomEditor : MonoBehaviour
                 {
                     _t = Instantiate(tileEditorTemplate, posToSpawn, Quaternion.identity, transform);
                     _t.SetCoords(x, y);
-                    _t.SetupdData(this, currentData.tiles[x, y]);
+                    //_t.SetupdData(this, currentData.tiles[x, y]);
+                    _t.SetupdData(this, currentData.GetDataFromCoords(x, y));
                     allTiles.Add(_t);
 
                     posToSpawn.y += (tileYSize + generationParameters.tileSpacing);
@@ -110,7 +115,7 @@ public class RoomEditor : MonoBehaviour
         {
             Debug.LogError("Unable to load from the data container, it could be corrupted");
         }
-       
+
     }
 
     [Button("Save grid into assigned Data")]
@@ -142,7 +147,8 @@ public class RoomEditor : MonoBehaviour
         }
         try
         {
-            currentData.tiles[t.coords[0], t.coords[1]]
+            //currentData.tiles[t.coords[0], t.coords[1]]
+            currentData.GetDataFromCoords(t.coords[0], t.coords[1])
             .SetData(
                 (t.coords[0], t.coords[1]),
                 t.type,

@@ -12,6 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ea0bd31a199eb47a057220e34189cc, type: 3}
   m_Name: TestRoom
   m_EditorClassIdentifier: 
-  roomName: 
-  columnsCount: 0
-  rowsCount: 0
+  roomName: newRoom
+  columnsCount: 2
+  rowsCount: 2
+  tilesDataSerialization:
+  - type: 1
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+  - type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+  - type: 1
+    canPlaceDice: 1
+    isPlayerSpawn: 1
+  - type: 1
+    canPlaceDice: 1
+    isPlayerSpawn: 0

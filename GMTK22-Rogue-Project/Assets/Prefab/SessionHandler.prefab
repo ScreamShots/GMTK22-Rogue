@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainHandler: {fileID: 790664839324821601}
-  interractionHandler: {fileID: 0}
+  interractionHandler: {fileID: 4980571007330408840}
+  entityHandler: {fileID: 4275452342522765029}
   tempDbugRoomData: {fileID: 11400000, guid: 9a47cb9b1d0d5354f987e9af3f354839, type: 2}
 --- !u!1 &3264862051895392226
 GameObject:
@@ -59,6 +60,7 @@ GameObject:
   - component: {fileID: 692289173546491611}
   - component: {fileID: 790664839324821601}
   - component: {fileID: 4980571007330408840}
+  - component: {fileID: 4275452342522765029}
   m_Layer: 0
   m_Name: Service
   m_TagString: Untagged
@@ -97,7 +99,7 @@ MonoBehaviour:
   gridCenter: {fileID: 692289173546491611}
   gridParent: {fileID: 0}
   tileSessionTemplate: {fileID: 5646781495130149258, guid: af9cf52f776eef84f86655f24003fc40, type: 3}
-  tileSpacing: 0.15
+  tileSpacing: 0
   tileSize: 0.8
 --- !u!114 &4980571007330408840
 MonoBehaviour:
@@ -111,6 +113,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a6d7d1b16b1f4438ca8f99bd0b6e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInterractable:
+  currentInterractableMask:
     serializedVersion: 2
     m_Bits: 0
+  tempTileOnlyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  tileSelection:
+    currentSelected: {fileID: 0}
+--- !u!114 &4275452342522765029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264862051895392226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f0aa3bb6e790640b3f4a3f102ea105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayer: {fileID: 0}
+  playerPrefab: {fileID: 5340716370553975369, guid: 6f315569549303b439469a8a2f17d8a6, type: 3}

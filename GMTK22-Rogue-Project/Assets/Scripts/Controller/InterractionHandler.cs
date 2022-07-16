@@ -74,6 +74,11 @@ public class InterractionHandler : MonoBehaviour
         {
             tileSelection.SetSelected(null);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            tileSelection.CurrentSelected?.CallRightClick();
+        }
     }
 
     void OnTileSelectionChanged(TileSession lastTile, TileSession nextTile)

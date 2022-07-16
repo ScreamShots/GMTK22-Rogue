@@ -2,35 +2,49 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class EntityBase : MonoBehaviour
 {
     [SerializeField, ReadOnly]
-    TileSession occupiedTile;
+    protected TileSession standingTile;
 
     [Space]
 
+    public bool canTakeDamage;
     [SerializeField]
     float translationTime;
 
-    public abstract void DeffineReachableTiles();
+    public event Action ActionStarted;
+    public event Action ActionEnded;
 
-    public IEnumerator Move(TileSession destination)
+    public virtual void Init()
     {
+
+    }
+
+    public void LaunchMove(TileSession destination) => StartCoroutine(Move(destination));
+
+    IEnumerator Move(TileSession destination)
+    {
+        ActionStarted?.Invoke();
+
         Vector3 startPoint = transform.position;
         Vector3 endPoint = new Vector3(destination.transform.position.x, destination.transform.position.y, transform.position.z);
         float timer = 0;
 
         while(timer < translationTime)
         {
-            transform.Translate(Vector3.Lerp(startPoint, endPoint, timer / translationTime));
+            transform.position = Vector3.Lerp(startPoint, endPoint, timer / translationTime);
             yield return new WaitForEndOfFrame();
             timer += Time.deltaTime;
         }
 
         transform.position = endPoint;
-        occupiedTile.SetStandinEntity(null);
+        standingTile.SetStandinEntity(null);
         destination.SetStandinEntity(this);
-        occupiedTile = destination;
+        standingTile = destination;
+
+        ActionEnded?.Invoke();
     }
 }

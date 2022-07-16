@@ -4,25 +4,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum PossibleAction { Walkable, Attackable, None }
+
 public class TileSession : Tile
 {
     [SerializeField, ReadOnly]
     TileData linkedData;
     [SerializeField, ReadOnly]
     EntityBase currentStandingEntity; 
-
     [SerializeField]
     TileSessionVisual visuals;
+    [SerializeField, ReadOnly]
+    PossibleAction possibleActionOnCell;
+
 
     //Interraction actions;
     public event Action HoverEnter;
     public event Action HoverExit;
-    public event Action RightClick;
-    public event Action LeftClick;
+    public event Action<TileSession> RightClick;
+    public event Action<TileSession> LeftClick;
 
-    public void InitTile()
+    public bool Walkable => linkedData.Walkable && currentStandingEntity == null;
+    public bool Attackable => currentStandingEntity != null && currentStandingEntity.canTakeDamage;
+    public bool IsSpawn => linkedData.isPlayerSpawn;
+
+    public void InitTile(TileData data)
     {
-
+        linkedData = data;
+        possibleActionOnCell = PossibleAction.None;
+        visuals.SetTileTexture(data.type);
     }
 
     public void ClearTile()
@@ -32,6 +42,7 @@ public class TileSession : Tile
 
     public void CallHoverEnter() => HoverEnter?.Invoke();
     public void CallHoverExit() => HoverExit?.Invoke();
+    public void CallRightClick() => RightClick?.Invoke(this);
 
     public void SetStandinEntity(EntityBase entity)
     {
@@ -42,6 +53,11 @@ public class TileSession : Tile
         }
 
         currentStandingEntity = entity;
+    }
 
+    public void SetPossibleActionOnCells(PossibleAction type)
+    {
+        possibleActionOnCell = type;
+        visuals.SetPossibleActionFeedback(type);
     }
 }

@@ -44,6 +44,9 @@ TagManager:
   - name: Tiles
     uniqueID: 1934872579
     locked: 0
+  - name: Entity
+    uniqueID: 3843221811
+    locked: 0
   - name: OverideWorldUI
     uniqueID: 3522930243
     locked: 0

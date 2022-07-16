@@ -218,7 +218,7 @@ MonoBehaviour:
   coords: 
   tileRenderer: {fileID: 4437694559470649568}
   outlineRenderer: {fileID: 4437694559650288326}
-  type: 2
+  type: 0
   canPlaceDice: 1
   isPlayerSpawn: 0
 --- !u!212 &1197076348828208912

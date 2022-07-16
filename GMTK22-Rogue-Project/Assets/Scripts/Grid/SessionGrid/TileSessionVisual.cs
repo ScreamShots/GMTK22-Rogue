@@ -13,6 +13,8 @@ public class TileSessionVisual : MonoBehaviour
     SpriteRenderer outlineRenderer;
     [SerializeField]
     SpriteRenderer selectorRenderer;
+    [SerializeField]
+    DebugTileColors colorPalette;
 
     private void Awake()
     {
@@ -33,5 +35,27 @@ public class TileSessionVisual : MonoBehaviour
     public void OnHoverExit()
     {
         selectorRenderer.gameObject.SetActive(false);
+    }
+
+    public void SetTileTexture(TileType type)
+    {
+        tileRenderer.color = colorPalette.GetColorFromType(type);
+    }
+
+    
+    public void SetPossibleActionFeedback(PossibleAction type)
+    {
+        switch (type)
+        {
+            case PossibleAction.Walkable:
+                outlineRenderer.color = colorPalette.walkableOutlineColor;
+                break;
+            case PossibleAction.Attackable:
+                outlineRenderer.color = colorPalette.attackableOutlineColor;
+                break;
+            case PossibleAction.None:
+                outlineRenderer.color = colorPalette.defaultOutlineColor;
+                break;
+        }
     }
 }
