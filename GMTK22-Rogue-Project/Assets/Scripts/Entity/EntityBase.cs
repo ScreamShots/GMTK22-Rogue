@@ -169,6 +169,11 @@ public abstract class EntityBase : MonoBehaviour
             OnDeath();
         }
 
+        if (transform.GetChild(0).TryGetComponent<PlayerVisual>(out PlayerVisual playerVisual))
+        {
+            playerVisual.ChangeHealthState(baseHp, currentHp);
+        }
+
         TakingDamage?.Invoke(currentHp, baseHp);
         return dead;
     }
