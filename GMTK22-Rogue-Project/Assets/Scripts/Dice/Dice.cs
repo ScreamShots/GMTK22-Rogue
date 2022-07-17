@@ -1,6 +1,8 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public enum Colors
 {
@@ -10,7 +12,8 @@ public enum States
 {
     Idle,
     Roll,
-    Display
+    Display,
+    Moved
 }
 
 public class Dice : MonoBehaviour
@@ -18,6 +21,7 @@ public class Dice : MonoBehaviour
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Texture2D texture;
     [SerializeField] private Rigidbody rbody;
+    [SerializeField] private Collider coll;
 
     public int value; 
     public Colors[] colors;
@@ -32,14 +36,18 @@ public class Dice : MonoBehaviour
     [SerializeField] private LayerMask faceChecklayerMask;
 
     [HideInInspector] public DiceManager diceManager;
-    [SerializeField] private States currentState = States.Idle;
+    public States currentState = States.Idle;
     private MaterialPropertyBlock propBlock;
     private bool isMoving = true;
     private bool hasHitGroundOnce = false; //Ceci est un vieux pensement qui sent le cul mais promi c'est la faute de Unity
+    public bool alreadyReoriented;
+
+    Vector3 startPos;
 
     private void Start()
     {
         propBlock = new MaterialPropertyBlock();
+        startPos = transform.position;
 
         ApplyTexture();
     }
@@ -78,22 +86,29 @@ public class Dice : MonoBehaviour
         switch (state)
         {
             case States.Idle:
+                alreadyReoriented = false;
+                rbody.constraints = RigidbodyConstraints.FreezeAll;
+                rbody.useGravity = false;
+                transform.position = startPos;
                 break;
             case States.Roll:
+                alreadyReoriented = false;
                 rbody.constraints = RigidbodyConstraints.None;
                 rbody.useGravity = true;
 
                 rbody.AddForce(Random.insideUnitSphere.normalized * Random.Range(minImpulse, maxImpulse), ForceMode.Impulse);
                 rbody.AddTorque(Random.insideUnitSphere.normalized * Random.Range(minTorque, maxTorque), ForceMode.Impulse);
                 isMoving = true;
-
-                
                 break;
             case States.Display:
                 rbody.constraints = RigidbodyConstraints.FreezeRotation;
-
                 isMoving = false;
                 hasHitGroundOnce = false;
+                rbody.useGravity = true;
+                break;
+            case States.Moved:
+                rbody.useGravity = false;
+                rbody.constraints = RigidbodyConstraints.FreezeRotation;
                 break;
 
             default:
@@ -121,5 +136,19 @@ public class Dice : MonoBehaviour
         {
             hasHitGroundOnce = true;
         }
+    }
+
+    public void ReOrientate()
+    {
+        void TestRotation()
+        {
+            if (transform.rotation == Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z))
+                alreadyReoriented = true;
+        }
+
+        var targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
+        transform.DORotateQuaternion(targetRotation, 0.6f)
+            .SetEase(Ease.Flash)
+            .OnComplete (TestRotation);
     }
 }

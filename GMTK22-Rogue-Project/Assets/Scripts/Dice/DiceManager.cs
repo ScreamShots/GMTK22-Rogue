@@ -12,6 +12,7 @@ public class DiceManager : MonoBehaviour
 
     [SerializeField] private Transform anchorA;
     [SerializeField] private Transform anchorB;
+    [SerializeField] GameObject securityFloor;
 
     public int moveChecks = 0;
 
@@ -40,6 +41,11 @@ public class DiceManager : MonoBehaviour
         {
             RollTheDice();
         }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            foreach (var dice in diceHand)
+                dice.ChangeState(States.Idle);
+        }
     }
 
     public void AddDice(int nbrOfDice)
@@ -64,8 +70,15 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+    IEnumerator ForceFaceCheck()
+    {
+        yield return new WaitForSeconds(6f);
+        //CallFaceCheck();
+    }
+
     private void RollTheDice()
     {
+        securityFloor.SetActive(true);
         print("Take your chance, roll the dice !");
 
         moveChecks = 0;
@@ -82,6 +95,8 @@ public class DiceManager : MonoBehaviour
         {
             diceHand[i].ChangeState(States.Roll);
         }
+
+        StartCoroutine(ForceFaceCheck());
     }
 
     private void OnDrawGizmos()
@@ -108,11 +123,14 @@ public class DiceManager : MonoBehaviour
 
     private void CallFaceCheck()
     {
+        StopAllCoroutines();
         for (int i = 0; i < diceHand.Count; i++)
         {
             diceHand[i].CheckFaces();
 
             diceHand[i].ChangeState(States.Display);
         }
+
+        securityFloor.SetActive(false);
     }
 }

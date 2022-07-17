@@ -243,7 +243,9 @@ MonoBehaviour:
   meshRenderer: {fileID: 6776215594249530565}
   texture: {fileID: 0}
   rbody: {fileID: 6776215594249530570}
+  coll: {fileID: 6776215594249530566}
   value: 0
+  colors: 
   minImpulse: 0.1
   maxImpulse: 0.5
   minTorque: 0.1
@@ -254,6 +256,7 @@ MonoBehaviour:
     m_Bits: 128
   diceManager: {fileID: 0}
   currentState: 0
+  alreadyReoriented: 0
 --- !u!33 &6776215594249530564
 MeshFilter:
   m_ObjectHideFlags: 0

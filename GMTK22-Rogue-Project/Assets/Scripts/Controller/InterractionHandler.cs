@@ -19,7 +19,7 @@ public class SelectionModel<T> where T : UnityEngine.Object
             {
                 if (currentSelected == null)
                     return;
-                SelectionChanged?.Invoke(currentSelected,null);
+                SelectionChanged?.Invoke(currentSelected, null);
                 currentSelected = null;
             }
             else if (value != currentSelected)
@@ -34,7 +34,7 @@ public class SelectionModel<T> where T : UnityEngine.Object
     /// first T = previous;
     /// last T = next;
     /// </summary>
-    public event Action<T,T> SelectionChanged;
+    public event Action<T, T> SelectionChanged;
 
     public void SetSelected(T _obj)
     {
@@ -46,15 +46,19 @@ public class SelectionModel<T> where T : UnityEngine.Object
 
 public class InterractionHandler : MonoBehaviour
 {
-    [SerializeField, ReadOnly]
-    LayerMask currentInterractableMask;
+    public static Vector3 MousePosWorld;
+
     [SerializeField]
-    LayerMask tempTileOnlyMask;
+    LayerMask tileLayerMask;
+    [SerializeField]
+    LayerMask diceLayerMask;
 
     [Space]
 
     [SerializeField]
     SelectionModel<TileSession> tileSelection;
+    [SerializeField]
+    SelectionModel<Dice> diceSelection;
 
     Ray cursorRay;
     RaycastHit cursorRayOut;
@@ -62,6 +66,7 @@ public class InterractionHandler : MonoBehaviour
     public void Start()
     {
         tileSelection.SelectionChanged += OnTileSelectionChanged;
+        diceSelection.SelectionChanged += OnDiceSelectionChanged;
     }
 
     public void ResetSelectionModels()
@@ -73,7 +78,7 @@ public class InterractionHandler : MonoBehaviour
     {
         cursorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(cursorRay, out cursorRayOut, Mathf.Infinity, tempTileOnlyMask))
+        if (Physics.Raycast(cursorRay, out cursorRayOut, Mathf.Infinity, tileLayerMask))
         {
             tileSelection.SetSelected(cursorRayOut.collider.gameObject.GetComponent<TileSession>());
         }
@@ -82,9 +87,38 @@ public class InterractionHandler : MonoBehaviour
             tileSelection.SetSelected(null);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(cursorRay, out cursorRayOut, Mathf.Infinity,diceLayerMask))
         {
-            tileSelection.CurrentSelected?.CallRightClick();
+            if (!(diceSelection.CurrentSelected?.currentState == States.Moved && Input.GetMouseButton(0)))
+                diceSelection.SetSelected(cursorRayOut.collider.gameObject.GetComponent<Dice>());
+        }
+        else
+        {
+            if (!(diceSelection.CurrentSelected?.currentState == States.Moved && Input.GetMouseButton(0)))
+                diceSelection.SetSelected(null);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+            OnRightClick();
+
+        if (Input.GetMouseButton(0))
+        {
+            if (diceSelection.CurrentSelected?.currentState != States.Moved)
+                diceSelection.CurrentSelected?.ChangeState(States.Moved);
+
+            var selectedDice = diceSelection.CurrentSelected;
+            if (selectedDice != null)
+            {
+                Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedDice.transform.position).z);
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
+                selectedDice.transform.position = new Vector3(worldPosition.x, 2f, worldPosition.z);
+            }
+
+        }
+        else
+        {
+            if (diceSelection.CurrentSelected?.currentState == States.Moved)
+                diceSelection.CurrentSelected?.ChangeState(States.Display);
         }
     }
 
@@ -92,5 +126,24 @@ public class InterractionHandler : MonoBehaviour
     {
         lastTile?.CallHoverExit();
         nextTile?.CallHoverEnter();
+    }
+
+    void OnDiceSelectionChanged(Dice lastDice, Dice nextDice)
+    {
+        if (lastDice?.currentState == States.Moved)
+        {
+            lastDice.ChangeState(States.Display);
+        }
+
+        if (nextDice != null)
+        {
+            if (!nextDice.alreadyReoriented)
+                nextDice.ReOrientate();
+        }
+    }
+
+    public void OnRightClick()
+    {
+        tileSelection.CurrentSelected?.CallRightClick();
     }
 }
