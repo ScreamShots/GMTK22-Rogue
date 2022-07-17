@@ -96,7 +96,7 @@ public abstract class EntityBase : MonoBehaviour
         ActionStarted?.Invoke(this, EventArgs.Empty);
 
         Vector3 startPoint = transform.position;
-        Vector3 endPoint = new Vector3(destination.transform.position.x, destination.transform.position.y, transform.position.z);
+        Vector3 endPoint = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
         float timer = 0;
 
         while (timer < translationTime)
@@ -122,7 +122,7 @@ public abstract class EntityBase : MonoBehaviour
         ActionStarted?.Invoke(this, EventArgs.Empty);
 
         Vector3 startPoint = transform.position;
-        Vector3 endPoint = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
+        Vector3 endPoint = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
         float timer = 0;
 
         while (timer < attackTime / 2)

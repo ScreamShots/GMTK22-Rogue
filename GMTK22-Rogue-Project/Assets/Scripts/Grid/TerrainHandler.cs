@@ -59,16 +59,16 @@ public class TerrainHandler : MonoBehaviour
             {
                 for (int y = 0; y < data.rowsCount; y++)
                 {
-                    _t = Instantiate(tileSessionTemplate, posToSpawn, Quaternion.identity, gridParent);
+                    _t = Instantiate(tileSessionTemplate, posToSpawn, Quaternion.Euler(90,0,0), gridParent);
                     _t.SetCoords(x, y);
                     _t.InitTile(data.GetDataFromCoords(x,y));
                     currentGrid[x, y] = _t;
 
-                    posToSpawn.y += (tileYSize + tileSpacing);
+                    posToSpawn.z += (tileYSize + tileSpacing);
                 }
 
                 posToSpawn.x += (tileXSize + tileSpacing);
-                posToSpawn.y = gridCenter.transform.position.y;
+                posToSpawn.z = gridCenter.transform.position.z;
             }
 
             float XOffset = ((tileXSize + tileSpacing) * (data.columnsCount-1)) / 2;
@@ -76,7 +76,7 @@ public class TerrainHandler : MonoBehaviour
 
             foreach (TileSession ts in currentGrid)
             {
-                ts.transform.position = new Vector3(ts.transform.position.x - XOffset, ts.transform.position.y - YOffset, 0);
+                ts.transform.position = new Vector3(ts.transform.position.x - XOffset, gridCenter.transform.position.y ,ts.transform.position.z - YOffset);
                 ts.SpawnEntity();
             }
                 

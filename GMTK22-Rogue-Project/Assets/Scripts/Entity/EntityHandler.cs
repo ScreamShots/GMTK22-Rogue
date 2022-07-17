@@ -78,10 +78,9 @@ public class EntityHandler : MonoBehaviour
 
     public void SpawnPlayer(TileSession tileToSpawn, float scaleFactor)
     {
-        currentPlayer = Instantiate(playerPrefab, transform);
+        currentPlayer = Instantiate(playerPrefab, tileToSpawn.transform.position, Quaternion.Euler(90,0,0),transform);
         currentPlayer.Init(tileToSpawn);
         currentPlayer.transform.localScale = Vector3.one * scaleFactor;
-        currentPlayer.transform.position = new Vector3(tileToSpawn.transform.position.x, tileToSpawn.transform.position.y, currentPlayer.transform.position.z);
     }
 
     public void SpawnEntity(TileSession tileToSpawn, EntityList type, float scaleFactor)
@@ -89,18 +88,16 @@ public class EntityHandler : MonoBehaviour
         switch (type)
         {
             case EntityList.Chest:
-                var c = Instantiate(chestPrefab, transform);
+                var c = Instantiate(chestPrefab, tileToSpawn.transform.position, Quaternion.Euler(90,0,0),transform);
                 c.Init(tileToSpawn);
                 allChests.Add(c);
                 c.transform.localScale = Vector3.one * scaleFactor;
-                c.transform.position = new Vector3(tileToSpawn.transform.position.x, tileToSpawn.transform.position.y, c.transform.position.z);
                 break;
             case EntityList.Monster:
-                var m = Instantiate(monsterPrefab, transform);
+                var m = Instantiate(monsterPrefab, tileToSpawn.transform.position, Quaternion.Euler(90, 0, 0), transform);
                 m.Init(tileToSpawn);
                 allMonsters.Add(m);
                 m.transform.localScale = Vector3.one * scaleFactor;
-                m.transform.position = new Vector3(tileToSpawn.transform.position.x, tileToSpawn.transform.position.y, m.transform.position.z);
                 break;
         }
     }
