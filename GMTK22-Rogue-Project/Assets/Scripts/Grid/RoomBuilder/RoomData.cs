@@ -30,7 +30,7 @@ public class RoomData : ScriptableObject
     }
 }
 
-public enum TileType { Ground, Wall, Door, Trap }
+public enum TileType { Ground, Wall, Door, Trap, NoDice }
 
 [System.Serializable]
 public class TileData
@@ -62,7 +62,7 @@ public class TileData
         entityOnTile = entity;
     }
 
-    public bool Walkable => type == TileType.Ground || type == TileType.Trap;
+    public bool Walkable => type == TileType.Ground || type == TileType.Trap || type == TileType.NoDice;
 }
 
 [System.Serializable]

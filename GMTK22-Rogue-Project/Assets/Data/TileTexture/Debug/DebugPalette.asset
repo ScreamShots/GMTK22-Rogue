@@ -21,6 +21,8 @@ MonoBehaviour:
     color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   - type: 3
     color: {r: 0.9339623, g: 0.33922213, b: 0.33922213, a: 1}
+  - type: 4
+    color: {r: 0.93333334, g: 0.34117642, b: 0.8435833, a: 1}
   entityAtlas:
   - entity: 0
     sprite: {fileID: 0}
