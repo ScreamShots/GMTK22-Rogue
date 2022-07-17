@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c86897a75b70a740a1edf547bbeda2b, type: 3}
+  m_Name: DebugPalette
+  m_EditorClassIdentifier: 
+  colorPalette:
+  - type: 1
+    color: {r: 0.8301887, g: 0.45854786, b: 0.027411906, a: 1}
+  - type: 2
+    color: {r: 0.3254717, g: 0.3424728, b: 1, a: 1}
+  - type: 0
+    color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  - type: 3
+    color: {r: 0.9339623, g: 0.33922213, b: 0.33922213, a: 1}
+  entityAtlas:
+  - entity: 0
+    sprite: {fileID: 0}
+  - entity: 1
+    sprite: {fileID: 21300000, guid: 3ce20666ed13ba246974fe2a44b1acdc, type: 3}
+  - entity: 2
+    sprite: {fileID: 21300000, guid: d39e5b56a29a06b40a07d159e55f8950, type: 3}
+  spawnOutlineColor: {r: 1, g: 0, b: 0.9532509, a: 1}
+  defaultOutlineColor: {r: 1, g: 0.85492563, b: 0.28773582, a: 1}
+  walkableOutlineColor: {r: 0.18396229, g: 0.7752767, b: 1, a: 1}
+  attackableOutlineColor: {r: 1, g: 0.25, b: 0.25, a: 1}
+  openDoorColor: {r: 0.38039216, g: 1, b: 0.41568628, a: 1}
+  closeDoorColor: {r: 0.3254902, g: 0.34117648, b: 1, a: 1}
