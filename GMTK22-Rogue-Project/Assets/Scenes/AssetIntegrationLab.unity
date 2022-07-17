@@ -645,7 +645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631370053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.15, y: 10, z: 8.94}
+  m_LocalPosition: {x: 4.58, y: 9.82, z: 10.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6652fe7b8a614646ad42a7733c5f97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDiceNbr: 3
+  startDiceNbr: 18
   diceBankTransform: {fileID: 1271479350}
   diceBank: []
   diceHand: []
