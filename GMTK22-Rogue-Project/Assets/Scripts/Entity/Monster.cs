@@ -95,4 +95,25 @@ public class Monster : EntityBase
         SessionManager.Instance.KillEntity(this);
         CallDeathEnd();
     }
+
+    protected override void OnAttackFeedbacks()
+    {
+        base.OnAttackFeedbacks();
+
+        visuals.PlayClipOnce(visuals.attackClip, 1f);
+    }
+
+    protected override void OnMoveFeedbacks()
+    {
+        base.OnMoveFeedbacks();
+
+        visuals.PlayClipOnce(visuals.moveClip, 0.8f);
+    }
+
+    protected override void OnTakeDamageFeedbakcs()
+    {
+        base.OnTakeDamageFeedbakcs();
+
+        visuals.PlayClipOnce(visuals.damageClip, 1f);
+    }
 }

@@ -12,6 +12,7 @@ public class Chest : EntityBase
     {
         CallDeathStart();
         visuals.OnDeathAnimation(DropItems);
+        visuals.PlayClipOnce(visuals.deathClip, 1f);
     }
 
     void DropItems()

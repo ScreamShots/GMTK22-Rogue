@@ -25,6 +25,10 @@ public class TerrainHandler : MonoBehaviour
     float tileSize;
     public float ScaleFactor => tileSize;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip doorOpenClip;
+    [SerializeField] private AudioClip doorCloseClip;
+
     public void ConstructNewRoom(RoomData data)
     {
         if (data == null)
@@ -105,7 +109,27 @@ public class TerrainHandler : MonoBehaviour
         foreach (var d in doors)
             d.UpdateDoor(state);
 
+        if (state != doorState)
+        {
+            if (!state)
+            {
+                PlayClipOnce(doorCloseClip, 1f);
+            }
+            else
+            {
+                PlayClipOnce(doorOpenClip, 0.8f);
+            }
+        }
+
         doorState = state;
+    }
+
+    public void PlayClipOnce(AudioClip clip, float volume)
+    {
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.loop = false;
+        audioSource.Play();
     }
 }
 

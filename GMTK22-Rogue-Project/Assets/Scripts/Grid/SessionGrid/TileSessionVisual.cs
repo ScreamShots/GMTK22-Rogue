@@ -16,6 +16,12 @@ public class TileSessionVisual : MonoBehaviour
     [SerializeField]
     DebugTileColors colorPalette;
 
+    [SerializeField] private Sprite groundSprite;
+    [SerializeField] private Sprite wallSprite;
+    [SerializeField] private Sprite noDiceSprite;
+    [SerializeField] private Sprite doorCloseSprite;
+    [SerializeField] private Sprite doorOpenSprite;
+
     private void Awake()
     {
         linkedTile.HoverEnter += OnHoverEnter;
@@ -39,10 +45,32 @@ public class TileSessionVisual : MonoBehaviour
 
     public void SetTileTexture(TileType type, bool doorState = false)
     {
-        if (type == TileType.Door)
-            tileRenderer.color = doorState ? colorPalette.openDoorColor : colorPalette.closeDoorColor;
-        else
-            tileRenderer.color = colorPalette.GetColorFromType(type);
+        switch (type)
+        {
+            case TileType.Ground:
+                tileRenderer.sprite = groundSprite;
+                break;
+            case TileType.Wall:
+                tileRenderer.sprite = wallSprite;
+                break;
+            case TileType.Door:
+                tileRenderer.sprite = doorState ? doorOpenSprite : doorCloseSprite;
+                break;
+            case TileType.Trap:
+                break;
+            case TileType.NoDice:
+                tileRenderer.sprite = noDiceSprite;
+                break;
+            default:
+                break;
+        }
+
+        tileRenderer.transform.localScale = new Vector2(0.275f, 0.275f);
+
+        //if (type == TileType.Door)
+        //    tileRenderer.color = doorState ? colorPalette.openDoorColor : colorPalette.closeDoorColor;
+        //else
+        //    tileRenderer.color = colorPalette.GetColorFromType(type);
     }
 
 
@@ -57,7 +85,7 @@ public class TileSessionVisual : MonoBehaviour
                 outlineRenderer.color = colorPalette.attackableOutlineColor;
                 break;
             case PossibleAction.None:
-                outlineRenderer.color = colorPalette.defaultOutlineColor;
+                outlineRenderer.color = Color.clear;
                 break;
         }
     }

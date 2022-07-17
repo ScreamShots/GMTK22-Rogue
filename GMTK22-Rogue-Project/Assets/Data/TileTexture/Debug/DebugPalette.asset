@@ -27,11 +27,11 @@ MonoBehaviour:
   - entity: 0
     sprite: {fileID: 0}
   - entity: 1
-    sprite: {fileID: 21300000, guid: 3ce20666ed13ba246974fe2a44b1acdc, type: 3}
+    sprite: {fileID: 21300000, guid: 768ab38f21a5be340956e84f6b3fd3f5, type: 3}
   - entity: 2
-    sprite: {fileID: 21300000, guid: d39e5b56a29a06b40a07d159e55f8950, type: 3}
+    sprite: {fileID: 21300000, guid: 598146774aa807544a96357a1a3a2b90, type: 3}
   spawnOutlineColor: {r: 1, g: 0, b: 0.9532509, a: 1}
-  defaultOutlineColor: {r: 1, g: 0.85492563, b: 0.28773582, a: 1}
+  defaultOutlineColor: {r: 1, g: 0.85492563, b: 0.28773582, a: 0}
   walkableOutlineColor: {r: 0.18396229, g: 0.7752767, b: 1, a: 1}
   attackableOutlineColor: {r: 1, g: 0.25, b: 0.25, a: 1}
   openDoorColor: {r: 0.38039216, g: 1, b: 0.41568628, a: 1}

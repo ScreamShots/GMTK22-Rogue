@@ -9,11 +9,15 @@ public class ChestVisual : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer chestRenderer;
+    [SerializeField]
+    AudioSource audioSource;
 
     [HorizontalLine]
 
     [SerializeField]
     float deathAnimDuration;
+
+    public AudioClip deathClip;
 
 
     public void OnDeathAnimation(Action CallBack)
@@ -23,5 +27,13 @@ public class ChestVisual : MonoBehaviour
         chestRenderer
             .DOColor(targetColor, deathAnimDuration)
             .OnComplete(() => CallBack?.Invoke());
+    }
+
+    public void PlayClipOnce(AudioClip clip, float volume)
+    {
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.loop = false;
+        audioSource.Play();
     }
 }

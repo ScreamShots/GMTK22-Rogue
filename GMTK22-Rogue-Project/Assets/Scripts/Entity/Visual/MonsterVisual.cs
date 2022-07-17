@@ -9,11 +9,17 @@ public class MonsterVisual : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer monsterRenderer;
+    [SerializeField]
+    AudioSource audioSource;
 
     [HorizontalLine]
 
     [SerializeField]
     float deathAnimDuration;
+
+    public AudioClip moveClip;
+    public AudioClip attackClip;
+    public AudioClip damageClip;
 
 
     public void OnDeathAnimation(Action CallBack)
@@ -23,5 +29,13 @@ public class MonsterVisual : MonoBehaviour
         monsterRenderer
             .DOColor(targetColor, deathAnimDuration)
             .OnComplete(() => CallBack?.Invoke());
+    }
+
+    public void PlayClipOnce(AudioClip clip, float volume)
+    {
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.loop = false;
+        audioSource.Play();
     }
 }
