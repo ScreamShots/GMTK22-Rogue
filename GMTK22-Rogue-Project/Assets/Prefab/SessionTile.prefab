@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 323258f8973790349a4a7da59d7f3435, type: 3}
-  m_Color: {r: 1, g: 0.85490197, b: 0.28627452, a: 1}
+  m_Color: {r: 1, g: 0.85490197, b: 0.28627452, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -292,6 +292,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1357257651506528020}
   selectorRenderer: {fileID: 1272460083316407511}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: -555698215, guid: cff79d0cd8b1b98409a332f2f2db3df0, type: 3}
+  wallSprite: {fileID: 795727448, guid: cff79d0cd8b1b98409a332f2f2db3df0, type: 3}
+  noDiceSprite: {fileID: 1526998530, guid: cff79d0cd8b1b98409a332f2f2db3df0, type: 3}
+  doorCloseSprite: {fileID: -220823684, guid: cff79d0cd8b1b98409a332f2f2db3df0, type: 3}
+  doorOpenSprite: {fileID: -934585728, guid: cff79d0cd8b1b98409a332f2f2db3df0, type: 3}
 --- !u!1 &7157449251607298086
 GameObject:
   m_ObjectHideFlags: 0

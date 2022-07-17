@@ -3,7 +3,13 @@ guid: b154edac36befc14182ca0a893d1e2a4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - linkedTile: {instanceID: 0}
+  - tileRenderer: {instanceID: 0}
+  - outlineRenderer: {instanceID: 0}
+  - selectorRenderer: {instanceID: 0}
+  - colorPalette: {instanceID: 0}
+  - groundSprite: {fileID: 2088899848, guid: cff79d0cd8b1b98409a332f2f2db3df0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
