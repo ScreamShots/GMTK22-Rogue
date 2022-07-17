@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6776215594249530567}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3949187573949459091
 GameObject:
@@ -60,7 +60,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6776215594249530567}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4582689027751113328
 GameObject:
@@ -91,7 +91,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6776215594249530567}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6132419028712948161
 GameObject:
@@ -122,7 +122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6776215594249530567}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6336789171704908732
 GameObject:
@@ -153,7 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6776215594249530567}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6462685796318137313
 GameObject:
@@ -184,7 +184,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6776215594249530567}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6776215594249530568
 GameObject:
@@ -219,12 +219,12 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 563806495845636468}
-  - {fileID: 6345749137693101959}
-  - {fileID: 3548077772337216664}
-  - {fileID: 3763178622408724268}
-  - {fileID: 4259466853950714885}
   - {fileID: 8254587115738721040}
+  - {fileID: 4259466853950714885}
+  - {fileID: 3763178622408724268}
+  - {fileID: 3548077772337216664}
+  - {fileID: 6345749137693101959}
+  - {fileID: 563806495845636468}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -248,7 +248,12 @@ MonoBehaviour:
   maxImpulse: 0.5
   minTorque: 0.1
   maxTorque: 0.5
+  faceCheckRadius: 0.1
+  faceChecklayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   diceManager: {fileID: 0}
+  currentState: 0
 --- !u!33 &6776215594249530564
 MeshFilter:
   m_ObjectHideFlags: 0

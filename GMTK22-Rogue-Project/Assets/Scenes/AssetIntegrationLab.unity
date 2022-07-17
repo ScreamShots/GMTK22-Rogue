@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 525414736}
   - component: {fileID: 525414735}
   - component: {fileID: 525414734}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ Transform:
   m_GameObject: {fileID: 525414733}
   m_LocalRotation: {x: 0.70708543, y: -0, z: -0, w: 0.70712817}
   m_LocalPosition: {x: 2.248335, y: 0.68871254, z: -4.327236}
-  m_LocalScale: {x: 7.3993, y: 7.3993, z: 7.3993}
+  m_LocalScale: {x: 24.335558, y: 22.331827, z: 7.3993}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1370,6 +1370,7 @@ MonoBehaviour:
   diceHand: []
   anchorA: {fileID: 113289685}
   anchorB: {fileID: 631370054}
+  moveChecks: 0
 --- !u!1001 &1406851847
 PrefabInstance:
   m_ObjectHideFlags: 0

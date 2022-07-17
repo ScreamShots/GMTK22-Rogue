@@ -76,7 +76,10 @@ public class DiceManager : MonoBehaviour
             float randomZ = Random.Range(anchorA.position.z, anchorB.position.z);
 
             diceHand[i].transform.position = new Vector3(randomX, anchorA.position.y, randomZ);
+        }
 
+        for (int i = 0; i < diceHand.Count; i++)
+        {
             diceHand[i].ChangeState(States.Roll);
         }
     }
@@ -95,11 +98,21 @@ public class DiceManager : MonoBehaviour
         moveChecks++;
 
         if (moveChecks >= diceHand.Count)
-            print("All dices have finished to roll");
+            CallFaceCheck();
     }
 
     public void RemoveMoveCheck()
     {
         moveChecks--;
+    }
+
+    private void CallFaceCheck()
+    {
+        for (int i = 0; i < diceHand.Count; i++)
+        {
+            diceHand[i].CheckFaces();
+
+            diceHand[i].ChangeState(States.Display);
+        }
     }
 }
