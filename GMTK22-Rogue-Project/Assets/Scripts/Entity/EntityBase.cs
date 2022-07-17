@@ -21,7 +21,7 @@ public abstract class EntityBase : MonoBehaviour
     [SerializeField]
     public float baseHp;
     [SerializeField, ReadOnly]
-    float currentHp;
+    protected float currentHp;
     [SerializeField]
     public float baseAttack;
     [SerializeField, ReadOnly]
@@ -93,6 +93,8 @@ public abstract class EntityBase : MonoBehaviour
 
     IEnumerator Move(TileSession destination)
     {
+        OnMoveFeedbacks();
+        
         ActionStarted?.Invoke(this, EventArgs.Empty);
 
         Vector3 startPoint = transform.position;
@@ -116,6 +118,8 @@ public abstract class EntityBase : MonoBehaviour
 
     IEnumerator Attack(TileSession target)
     {
+        OnAttackFeedbacks();
+
         bool waitDeath;
         void EndWaitDeath() => waitDeath = false;
 
@@ -160,6 +164,8 @@ public abstract class EntityBase : MonoBehaviour
 
     public bool TakeDamages(float dmgValue)
     {
+        OnTakeDamageFeedbakcs();
+
         currentHp -= dmgValue;
         bool dead = false;
 
@@ -169,14 +175,15 @@ public abstract class EntityBase : MonoBehaviour
             OnDeath();
         }
 
-        if (transform.GetChild(0).TryGetComponent<PlayerVisual>(out PlayerVisual playerVisual))
-        {
-            playerVisual.ChangeHealthState(baseHp, currentHp);
-        }
-
         TakingDamage?.Invoke(currentHp, baseHp);
         return dead;
     }
+
+    protected virtual void OnTakeDamageFeedbakcs() { }
+
+    protected virtual void OnAttackFeedbacks() { }
+
+    protected virtual void OnMoveFeedbacks() { }
 
     public void Heal(float healValue)
     {

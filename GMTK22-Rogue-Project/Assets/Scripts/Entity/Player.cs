@@ -88,4 +88,26 @@ public class Player : EntityBase
     }
 
 
+    protected override void OnTakeDamageFeedbakcs()
+    {
+        base.OnTakeDamageFeedbakcs();
+
+        visuals.ChangeHealthState(baseHp, currentHp);
+
+        visuals.PlayClipOnce(visuals.damageClip, 1f);
+    }
+
+    protected override void OnAttackFeedbacks()
+    {
+        base.OnAttackFeedbacks();
+
+        visuals.PlayClipOnce(visuals.attackClip, 0.25f);
+    }
+
+    protected override void OnMoveFeedbacks()
+    {
+        base.OnMoveFeedbacks();
+
+        visuals.PlayClipOnce(visuals.moveClip, 0.55f);
+    }
 }

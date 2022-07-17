@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113289684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.81, y: 10, z: 2.35}
+  m_LocalPosition: {x: -11.02, y: 10, z: -4.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -670,7 +670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525414733}
   m_LocalRotation: {x: 0.70708543, y: -0, z: -0, w: 0.70712817}
-  m_LocalPosition: {x: 3.01, y: -4.94, z: -4.327236}
+  m_LocalPosition: {x: 3.01, y: 0.03, z: -4.327236}
   m_LocalScale: {x: 37.671444, y: 34.569668, z: 11.454117}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -783,7 +783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631370053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.15, y: 10, z: 8.94}
+  m_LocalPosition: {x: -4.06, y: 10, z: 2.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1303,7 +1303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.1, y: -4.4}
+  m_AnchoredPosition: {x: 3.1, y: 1.11}
   m_SizeDelta: {x: 31.29, y: 24.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1196976612
@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6652fe7b8a614646ad42a7733c5f97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDiceNbr: 3
+  startDiceNbr: 18
   diceBankTransform: {fileID: 1271479350}
   diceBank: []
   diceHand: []
