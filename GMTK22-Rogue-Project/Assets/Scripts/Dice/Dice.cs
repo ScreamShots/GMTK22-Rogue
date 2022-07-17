@@ -20,7 +20,7 @@ public class Dice : MonoBehaviour
     [SerializeField] private Rigidbody rbody;
 
     public int value; 
-    Colors[] colors;
+    public Colors[] colors;
 
     [SerializeField] private float minImpulse;
     [SerializeField] private float maxImpulse;
