@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ea0bd31a199eb47a057220e34189cc, type: 3}
+  m_Name: EasyRoom_01
+  m_EditorClassIdentifier: 
+  roomName: EasyRoom_01
+  columnsCount: 6
+  rowsCount: 5
+  tilesDataSerialization:
+  - Xcoord: 0
+    Ycoord: 0
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 0
+    Ycoord: 1
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 0
+    Ycoord: 2
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 0
+    Ycoord: 3
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 0
+    Ycoord: 4
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 1
+    Ycoord: 0
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 1
+    Ycoord: 1
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 1
+    Ycoord: 2
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 1
+    Ycoord: 3
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 1
+    Ycoord: 4
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 2
+    Ycoord: 0
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 2
+    Ycoord: 1
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 2
+    Ycoord: 2
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 2
+    Ycoord: 3
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 2
+    Ycoord: 4
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 3
+    Ycoord: 0
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 3
+    Ycoord: 1
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 3
+    Ycoord: 2
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 3
+    Ycoord: 3
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 3
+    Ycoord: 4
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 4
+    Ycoord: 0
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 4
+    Ycoord: 1
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 4
+    Ycoord: 2
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 4
+    Ycoord: 3
+    type: 0
+    canPlaceDice: 1
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 4
+    Ycoord: 4
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 5
+    Ycoord: 0
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 5
+    Ycoord: 1
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 5
+    Ycoord: 2
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 5
+    Ycoord: 3
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
+  - Xcoord: 5
+    Ycoord: 4
+    type: 1
+    canPlaceDice: 0
+    isPlayerSpawn: 0
+    entityOnTile: 0
