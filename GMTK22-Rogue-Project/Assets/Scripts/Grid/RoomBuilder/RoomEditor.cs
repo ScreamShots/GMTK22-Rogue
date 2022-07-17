@@ -153,7 +153,8 @@ public class RoomEditor : MonoBehaviour
                 (t.coords[0], t.coords[1]),
                 t.type,
                 t.canPlaceDice,
-                t.isPlayerSpawn);
+                t.isPlayerSpawn,
+                t.entityOnTile);
         }
         catch { Debug.LogError("Unable to save tile data. Data container may be corrupted"); }
     }
@@ -167,5 +168,10 @@ public class RoomEditor : MonoBehaviour
     {
         Color outlineColor = isSpawn ? textures.spawnOutlineColor : textures.defaultOutlineColor;
         return outlineColor;
+    }
+
+    public Sprite GetEntitySprite(EntityList entity)
+    {
+        return textures.GetEntitySprite(entity);
     }
 }

@@ -37,12 +37,15 @@ public class TileSessionVisual : MonoBehaviour
         selectorRenderer.gameObject.SetActive(false);
     }
 
-    public void SetTileTexture(TileType type)
+    public void SetTileTexture(TileType type, bool doorState = false)
     {
-        tileRenderer.color = colorPalette.GetColorFromType(type);
+        if (type == TileType.Door)
+            tileRenderer.color = doorState ? colorPalette.openDoorColor : colorPalette.closeDoorColor;
+        else
+            tileRenderer.color = colorPalette.GetColorFromType(type);
     }
 
-    
+
     public void SetPossibleActionFeedback(PossibleAction type)
     {
         switch (type)

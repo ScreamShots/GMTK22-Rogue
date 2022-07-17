@@ -40,6 +40,8 @@ public class SelectionModel<T> where T : UnityEngine.Object
     {
         CurrentSelected = _obj;
     }
+
+    public void Clear() => currentSelected = null;
 }
 
 public class InterractionHandler : MonoBehaviour
@@ -60,6 +62,11 @@ public class InterractionHandler : MonoBehaviour
     public void Start()
     {
         tileSelection.SelectionChanged += OnTileSelectionChanged;
+    }
+
+    public void ResetSelectionModels()
+    {
+        tileSelection.Clear();
     }
 
     private void Update()

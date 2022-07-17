@@ -9,6 +9,7 @@ public class TerrainHandler : MonoBehaviour
     [SerializeField, ReadOnly]
     RoomData currentRoomData;
     public static TileSession[,] currentGrid;
+    public static bool doorState;
     public TileSession spawnTile => currentGrid.Cast<TileSession>().ToList().Where(t => t.IsSpawn).First();
 
     [Space]
@@ -67,14 +68,18 @@ public class TerrainHandler : MonoBehaviour
                 }
 
                 posToSpawn.x += (tileXSize + tileSpacing);
-                posToSpawn.y = 0;
+                posToSpawn.y = gridCenter.transform.position.y;
             }
 
             float XOffset = ((tileXSize + tileSpacing) * (data.columnsCount-1)) / 2;
             float YOffset = ((tileYSize + tileSpacing) * (data.rowsCount-1)) / 2;
 
             foreach (TileSession ts in currentGrid)
+            {
                 ts.transform.position = new Vector3(ts.transform.position.x - XOffset, ts.transform.position.y - YOffset, 0);
+                ts.SpawnEntity();
+            }
+                
         }
         catch
         {
@@ -87,10 +92,20 @@ public class TerrainHandler : MonoBehaviour
         foreach (var t in currentGrid.Cast<TileSession>().ToList())
         {
             t.ClearTile();
-            Destroy(t);
+            Destroy(t.gameObject);
         }
 
         currentGrid = null;
+    }
+
+    public void ControlDoors(bool state)
+    {
+        var doors = currentGrid.Cast<TileSession>().ToList().Where(t => t.GetTileType() == TileType.Door);
+
+        foreach (var d in doors)
+            d.UpdateDoor(state);
+
+        doorState = state;
     }
 }
 

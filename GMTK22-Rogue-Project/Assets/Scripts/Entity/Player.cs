@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,17 @@ public class Player : EntityBase
     List<TileSession> attackableTiles;
     List<TileSession> walkableTiles;
 
-    public void Init(TileSession firstStandingTile)
+    [HorizontalLine]
+
+    [SerializeField]
+    PlayerVisual visuals;
+
+    public override void Init(TileSession firstStandingTile)
     {
-        base.Init();
+        base.Init(firstStandingTile);
 
         attackableTiles = new List<TileSession>();
         walkableTiles = new List<TileSession>();
-
-        standingTile = firstStandingTile;
-        firstStandingTile.SetStandinEntity(this);
     }
 
     public void DeffinePossibleAction()
@@ -41,7 +44,7 @@ public class Player : EntityBase
                 {
                     attackableTiles.Add(pickedTile);
                     pickedTile.SetPossibleActionOnCells(PossibleAction.Attackable);
-                    //pickedTile.RightClick += LaunchAttack;
+                    pickedTile.RightClick += LaunchAttack;
                 }
             }
         }
@@ -57,7 +60,7 @@ public class Player : EntityBase
         foreach (var at in attackableTiles)
         {
             at.SetPossibleActionOnCells(PossibleAction.None);
-            //at.RightClick -= LaunchAttack
+            at.RightClick -= LaunchAttack;
         }
 
         foreach (var wt in walkableTiles)
@@ -66,4 +69,23 @@ public class Player : EntityBase
             wt.RightClick -= LaunchMove;
         }
     }
+
+    protected override void OnOpponentDeathBehavior(Action BehaviorEnd, EntityBase target)
+    {
+        void ResumeGameplay(object obj = null, EventArgs args = null)
+        {
+            target.DeathEnds -= ResumeGameplay;
+            BehaviorEnd?.Invoke();
+        }
+
+        target.DeathEnds += ResumeGameplay;
+    }
+
+    protected override void OnDeath()
+    {
+        CallDeathStart();
+        visuals.OnDeathAnimation(SessionManager.Instance.GameOver);
+    }
+
+
 }

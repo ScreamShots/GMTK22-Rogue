@@ -17,6 +17,11 @@ public class TileSession : Tile
     [SerializeField, ReadOnly]
     PossibleAction possibleActionOnCell;
 
+    [HorizontalLine]
+
+    [SerializeField]
+    float trapDmg;
+
 
     //Interraction actions;
     public event Action HoverEnter;
@@ -24,7 +29,7 @@ public class TileSession : Tile
     public event Action<TileSession> RightClick;
     public event Action<TileSession> LeftClick;
 
-    public bool Walkable => linkedData.Walkable && currentStandingEntity == null;
+    public bool Walkable => (linkedData.Walkable && currentStandingEntity == null) || (linkedData.type == TileType.Door && TerrainHandler.doorState);
     public bool Attackable => currentStandingEntity != null && currentStandingEntity.canTakeDamage;
     public bool IsSpawn => linkedData.isPlayerSpawn;
 
@@ -40,6 +45,12 @@ public class TileSession : Tile
 
     }
 
+    public void SpawnEntity()
+    {
+        if (linkedData.entityOnTile != EntityList.None)
+            SessionManager.Instance.SpawnEntity(this, linkedData.entityOnTile, transform.localScale.x);
+    }
+
     public void CallHoverEnter() => HoverEnter?.Invoke();
     public void CallHoverExit() => HoverExit?.Invoke();
     public void CallRightClick() => RightClick?.Invoke(this);
@@ -53,11 +64,28 @@ public class TileSession : Tile
         }
 
         currentStandingEntity = entity;
+
+        if(linkedData.type == TileType.Trap)
+        {
+            currentStandingEntity?.TakeDamages(trapDmg);
+        }
+        if(linkedData.type == TileType.Door)
+        {
+            SessionManager.Instance.GoToNextRoom();
+        }
     }
+
+    public EntityBase GetStandingEntity() => currentStandingEntity;
+    public TileType GetTileType() => linkedData.type;
 
     public void SetPossibleActionOnCells(PossibleAction type)
     {
         possibleActionOnCell = type;
         visuals.SetPossibleActionFeedback(type);
+    }
+
+    public void UpdateDoor(bool state)
+    {
+        visuals.SetTileTexture(linkedData.type, state);
     }
 }

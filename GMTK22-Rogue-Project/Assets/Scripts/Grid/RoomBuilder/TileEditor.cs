@@ -10,6 +10,8 @@ public class TileEditor : Tile
     RoomEditor editor;
     [SerializeField]
     protected SpriteRenderer outlineRenderer;
+    [SerializeField]
+    protected SpriteRenderer entityRenderer;
 
     [OnValueChanged("UpdateData")]
     public TileType type = TileType.Ground;
@@ -17,11 +19,14 @@ public class TileEditor : Tile
     public bool canPlaceDice = true;
     [OnValueChanged("UpdateData")]
     public bool isPlayerSpawn;
+    [OnValueChanged("UpdateData")]
+    public EntityList entityOnTile;
 
     public void UpdateData()
     {
         tileRenderer.color = editor.GetTileColor(type);
         outlineRenderer.color = editor.GetSpawnColor(isPlayerSpawn);
+        entityRenderer.sprite = editor.GetEntitySprite(entityOnTile);
 
         if (editor.autoSave)
             editor.UpdateTileData(this);
@@ -36,10 +41,12 @@ public class TileEditor : Tile
             type = data.type;
             canPlaceDice = data.canPlaceDice;
             isPlayerSpawn = data.isPlayerSpawn;
+            entityOnTile = data.entityOnTile;
         }
 
         tileRenderer.color = editor.GetTileColor(type);
         outlineRenderer.color = editor.GetSpawnColor(isPlayerSpawn);
+        entityRenderer.sprite = editor.GetEntitySprite(entityOnTile);
     }
 
 }

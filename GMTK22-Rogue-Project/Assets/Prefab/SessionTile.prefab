@@ -138,9 +138,11 @@ MonoBehaviour:
     type: 0
     canPlaceDice: 0
     isPlayerSpawn: 0
+    entityOnTile: 0
   currentStandingEntity: {fileID: 0}
   visuals: {fileID: 4914522082902671081}
   possibleActionOnCell: 0
+  trapDmg: 6
 --- !u!65 &4140642012936665668
 BoxCollider:
   m_ObjectHideFlags: 0

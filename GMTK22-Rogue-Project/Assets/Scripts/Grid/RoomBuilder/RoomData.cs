@@ -40,6 +40,7 @@ public class TileData
     public TileType type;
     public bool canPlaceDice;
     public bool isPlayerSpawn;
+    public EntityList entityOnTile;
 
     public TileData((int, int) _coords)
     {
@@ -48,15 +49,17 @@ public class TileData
         type = TileType.Ground;
         canPlaceDice = true;
         isPlayerSpawn = false;
+        entityOnTile = EntityList.None;
     }
 
-    public void SetData((int,int) _coords, TileType _type, bool _canPlace, bool _spawn)
+    public void SetData((int,int) _coords, TileType _type, bool _canPlace, bool _spawn, EntityList entity)
     {
         Xcoord = _coords.Item1;
         Ycoord = _coords.Item2;
         type = _type;
         canPlaceDice = _canPlace;
         isPlayerSpawn = _spawn;
+        entityOnTile = entity;
     }
 
     public bool Walkable => type == TileType.Ground || type == TileType.Trap;
