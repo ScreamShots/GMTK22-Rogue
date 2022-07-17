@@ -90,6 +90,10 @@ public class Dice : MonoBehaviour
                 
                 break;
             case States.Display:
+                rbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+                isMoving = false;
+                hasHitGroundOnce = false;
                 break;
 
             default:
