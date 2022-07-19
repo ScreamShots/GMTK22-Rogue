@@ -1579,6 +1579,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 7718387}
   selectorRenderer: {fileID: 202376819}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &397395969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,6 +1792,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1096291180}
   selectorRenderer: {fileID: 1395294439}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &446485368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,6 +1849,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 524114087}
   selectorRenderer: {fileID: 917551841}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &476486962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,6 +1906,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1988590733}
   selectorRenderer: {fileID: 781234071}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &499039556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,6 +2443,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 973200885}
   selectorRenderer: {fileID: 143059310}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &590641075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,6 +2668,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 292090}
   selectorRenderer: {fileID: 341434880}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &635836379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,6 +3313,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1160108340}
   selectorRenderer: {fileID: 1884762589}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &755526795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,6 +3694,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 892170407}
   selectorRenderer: {fileID: 2116162462}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &862795977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,6 +4003,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1290484810}
   selectorRenderer: {fileID: 2108806239}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &917551839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,6 +4216,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 594842837}
   selectorRenderer: {fileID: 1380964847}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &973200883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4951,6 +5001,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 397395971}
   selectorRenderer: {fileID: 1163401234}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1242127998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5087,6 +5142,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 336641508}
   selectorRenderer: {fileID: 817046922}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1274382450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5938,6 +5998,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1181361235}
   selectorRenderer: {fileID: 1858977445}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1395294437
 GameObject:
   m_ObjectHideFlags: 0
@@ -6230,6 +6295,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 28335348}
   selectorRenderer: {fileID: 500326950}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1449157749
 GameObject:
   m_ObjectHideFlags: 0
@@ -6582,6 +6652,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 2093491932}
   selectorRenderer: {fileID: 755526797}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1583654457
 GameObject:
   m_ObjectHideFlags: 0
@@ -6778,6 +6853,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1842386433}
   selectorRenderer: {fileID: 868148134}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1627661904
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,6 +6982,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1242128000}
   selectorRenderer: {fileID: 1330700580}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1628417668
 GameObject:
   m_ObjectHideFlags: 0
@@ -7122,6 +7207,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 703580766}
   selectorRenderer: {fileID: 579377002}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1655123251
 GameObject:
   m_ObjectHideFlags: 0
@@ -7258,6 +7348,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 2005552837}
   selectorRenderer: {fileID: 1628417670}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1684617492
 GameObject:
   m_ObjectHideFlags: 0
@@ -7355,6 +7450,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1687651688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1708350010533617575, guid: 95708f8d733011a47b1163947618526e, type: 3}
+  m_PrefabInstance: {fileID: 1337104406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6652fe7b8a614646ad42a7733c5f97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1705518565
 GameObject:
   m_ObjectHideFlags: 0
@@ -7407,6 +7513,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1426283035}
   selectorRenderer: {fileID: 695747796}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1711652357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7699,6 +7810,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 701789328}
   selectorRenderer: {fileID: 239033745}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1819207560
 GameObject:
   m_ObjectHideFlags: 0
@@ -7907,6 +8023,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 635836381}
   selectorRenderer: {fileID: 84366205}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1842386431
 GameObject:
   m_ObjectHideFlags: 0
@@ -8367,6 +8488,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 2014730498}
   selectorRenderer: {fileID: 2114572773}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1899961917
 GameObject:
   m_ObjectHideFlags: 0
@@ -8827,6 +8953,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1655123253}
   selectorRenderer: {fileID: 689997161}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &1988590731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9215,6 +9346,11 @@ MonoBehaviour:
   outlineRenderer: {fileID: 1449157751}
   selectorRenderer: {fileID: 1797755370}
   colorPalette: {fileID: 11400000, guid: c72349d422b30c34a82e5cc03220aaf3, type: 2}
+  groundSprite: {fileID: 0}
+  wallSprite: {fileID: 0}
+  noDiceSprite: {fileID: 0}
+  doorCloseSprite: {fileID: 0}
+  doorOpenSprite: {fileID: 0}
 --- !u!1 &2049494577
 GameObject:
   m_ObjectHideFlags: 0
@@ -9930,6 +10066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SessionManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4371422020492835911, guid: 6304e59f431d53141a6b1b69154fe806, type: 3}
+      propertyPath: diceManager
+      value: 
+      objectReference: {fileID: 1687651688}
     - target: {fileID: 4477689581321394176, guid: 6304e59f431d53141a6b1b69154fe806, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -16,12 +16,12 @@ public class DiceManager : MonoBehaviour
 
     public int moveChecks = 0;
 
-    private void Start()
-    {
-        Initialize();
-    }
+    //private void Start()
+    //{
+    //    Initialize();
+    //}
 
-    private void Initialize()
+    public void Initialize(int startDiceCount)
     {
         diceHand = new List<Dice>();
         diceBank = new List<Dice>();
@@ -32,7 +32,7 @@ public class DiceManager : MonoBehaviour
             diceBankTransform.GetChild(i).GetComponent<Dice>().diceManager = this;
         }
 
-        AddDice(startDiceNbr);
+        AddDice(startDiceCount);
     }
 
     private void Update()
@@ -70,13 +70,7 @@ public class DiceManager : MonoBehaviour
         }
     }
 
-    IEnumerator ForceFaceCheck()
-    {
-        yield return new WaitForSeconds(6f);
-        //CallFaceCheck();
-    }
-
-    private void RollTheDice()
+    public void RollTheDice()
     {
         securityFloor.SetActive(true);
         print("Take your chance, roll the dice !");
@@ -95,8 +89,6 @@ public class DiceManager : MonoBehaviour
         {
             diceHand[i].ChangeState(States.Roll);
         }
-
-        StartCoroutine(ForceFaceCheck());
     }
 
     private void OnDrawGizmos()
@@ -131,6 +123,7 @@ public class DiceManager : MonoBehaviour
             diceHand[i].ChangeState(States.Display);
         }
 
+        SessionManager.Instance.SetSate(SessionStates.Placement);
         securityFloor.SetActive(false);
     }
 }
